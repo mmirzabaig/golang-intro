@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	sl "./help"
+)
 
 func main() {
 	// #1 isOldEnoughToDrink
@@ -27,6 +31,11 @@ func main() {
 	// #7 getLastElement
 	arrq8 := []string{"12", "34", "56"}
 	fmt.Println(getLastElement(arrq8))
+	// #8 addToFront
+	sliceq8 := []int{1, 2, 3, 4, 5}
+	fmt.Println(addToFront(sliceq8, 6))
+	// Testing importing functions from another file
+	sl.Demo()
 }
 
 // #1
@@ -132,3 +141,93 @@ func addArrayProperty(obj map[string][2]string, key string, array [2]string) map
 func getLastElement(arr []string) string {
 	return arr[len(arr)-1]
 }
+
+// #8
+// Write a function called “addToFront”.
+
+// Given an array and an element, “addToFront” adds the given element to the front of the given array, and returns the given array.
+
+// Notes:
+// * It should be the SAME array, not a new array.
+// var output = addToFront([1, 2], 3);
+// console.log(output); // -> [3, 1, 2]
+
+// input: array(slice), int 	return:	array
+
+func addToFront(slice []int, num int) []int {
+	slice = append([]int{num}, slice...)
+	return slice
+}
+
+// #9
+// Write a function called “computePower”.
+
+// Given a number and an exponent, “computePower” returns the given number, raised to the given exponent.
+
+// var output = computePower(2, 3);
+// console.log(output); // --> 8
+
+// # 10
+// Write a function called “computePerimeterOfACircle”.
+
+// Given the radius of a circle, “computePerimeterOfACircle” returns its perimeter.
+
+// var output = computePerimeterOfACircle(4);
+// console.log(output); // --> 25.132741228718345
+
+// # 11
+// Write a function called “joinArrays”.
+
+// Given two arrays, “joinArrays” returns an array with the elements of “arr1” in order, followed by the elementsin “arr2”.
+
+// var output = joinArrays([1, 2], [3, 4]);
+// console.log(output); // --> [1, 2, 3, 4]
+
+// #12
+// Write a function called “getElementsAfter”.
+
+// Given an array and an index, “getElementsAfter” returns a new array with all the elements after (but not including) the given index.
+
+// var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2);
+// console.log(output); // --> ['d', 'e']
+
+// #13
+// Write a function called “getElementsUpTo”.
+
+// Given an array and a index, “getElementsUpTo”, returns an array with all the elements up until, but not including, the element at the given index.
+
+// Notes:
+// * In order to do this you should be familiar with the ‘slice’ method.
+
+// var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3)
+// console.log(output); // --> ['a', 'b', 'c']
+
+// #14
+// Write a function called “countCharacter”.
+
+// Given a string input and a character, “countCharacter” returns the number of occurences of a given character in the given string.
+
+// var output = countCharacter('I am a hacker', 'a');
+// console.log(output); // --> 3
+
+// #15
+// Write a function called “getAllLetters”.
+
+// Given a word, “getAllLetters” returns an array containing every character in the word.
+
+// Notes:
+// * If given an empty string, it should return an empty array.
+
+// var output = getAllLetters('Radagast');
+// console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
+
+// #16
+// Write a function called “countWords”.
+
+// Given a string, “countWords” returns an object where each key is a word in the given string, with its value being how many times that word appeared in the given string.
+
+// Notes:
+// * If given an empty string, it should return an empty object.
+
+// var output = countWords('ask a bunch get a bunch');
+// console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
