@@ -3,27 +3,30 @@ package main
 import "fmt"
 
 func main() {
-	// #1
+	// #1 isOldEnoughToDrink
 	fmt.Println(isOldEnoughToDrink(21))
-	// #2
+	// #2 getProperty
 	objq2 := make(map[string]string)
 	objq2["yes"] = "true"
 	objq2["no"] = "false"
 	fmt.Println(getProperty(objq2, "no"))
-	// #3
+	// #3 addProperty
 	objq3 := make(map[string]bool)
 	fmt.Println(addProperty(objq3, "rain"))
-	// #4
+	// #4 removeProperty
 	objq4 := make(map[string]int)
 	objq4["odd"] = 3
 	objq4["even"] = 4
 	fmt.Println(removeProperty(objq4, "even"))
-	// #5
+	// #5 getLengthOfTwoWords
 	fmt.Println(getLengthOfTwoWords("one", "two"))
-	// #6
+	// #6 addArrayProperty
 	objq6 := make(map[string][2]string)
 	arrq6 := [2]string{"hello", "world"}
 	fmt.Println(addArrayProperty(objq6, "arr", arrq6))
+	// #7 getLastElement
+	arrq8 := []string{"12", "34", "56"}
+	fmt.Println(getLastElement(arrq8))
 }
 
 // #1
@@ -113,4 +116,19 @@ func getLengthOfTwoWords(str1 string, str2 string) int {
 func addArrayProperty(obj map[string][2]string, key string, array [2]string) map[string][2]string {
 	obj[key] = array
 	return obj
+}
+
+// #7
+// Write a function called “getLastElement”.
+
+// Given an array, “getLastElement” returns the last element of the given array.
+
+// Notes:
+// * If the given array has a length of 0, it should return ‘undefined’.
+
+// var output = getLastElement([1, 2, 3, 4]);
+// console.log(output); // --> 4
+
+func getLastElement(arr []string) string {
+	return arr[len(arr)-1]
 }
