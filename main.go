@@ -18,6 +18,12 @@ func main() {
 	objq4["odd"] = 3
 	objq4["even"] = 4
 	fmt.Println(removeProperty(objq4, "even"))
+	// #5
+	fmt.Println(getLengthOfTwoWords("one", "two"))
+	// #6
+	objq6 := make(map[string][2]string)
+	arrq6 := [2]string{"hello", "world"}
+	fmt.Println(addArrayProperty(objq6, "arr", arrq6))
 }
 
 // #1
@@ -84,5 +90,27 @@ func addProperty(obj map[string]bool, key string) map[string]bool {
 
 func removeProperty(obj map[string]int, even string) map[string]int {
 	delete(obj, even)
+	return obj
+}
+
+// #5
+// Write a function called “getLengthOfTwoWords”.
+// Given 2 words, “getLengthOfTwoWords” returns the sum of their lengths.
+
+func getLengthOfTwoWords(str1 string, str2 string) int {
+	return len(str1) + len(str2)
+}
+
+// #6
+// Write a function called “addArrayProperty”.
+// Given an object, a key, and an array, “addArrayProperty” sets a new property on the object at the given key, with its value set to the given array.
+
+// var myObj = {};
+// var myArray = [1, 3];
+// addArrayProperty(myObj, 'myProperty', myArray);
+// console.log(myObj.myProperty); // --> [1, 3]
+
+func addArrayProperty(obj map[string][2]string, key string, array [2]string) map[string][2]string {
+	obj[key] = array
 	return obj
 }
