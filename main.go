@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 
 	sl "./help"
 )
@@ -36,6 +37,10 @@ func main() {
 	fmt.Println(addToFront(sliceq8, 6))
 	// Testing importing functions from another file
 	sl.Demo()
+	// #9 computePower
+	fmt.Println(computePower(2, 3))
+	// #10 computePerimeterOfACircle
+	fmt.Println(computePerimeterOfACircle(12))
 }
 
 // #1
@@ -155,6 +160,7 @@ func getLastElement(arr []string) string {
 // input: array(slice), int 	return:	array
 
 func addToFront(slice []int, num int) []int {
+	// make antoher slice and append the original slice to it
 	slice = append([]int{num}, slice...)
 	return slice
 }
@@ -167,6 +173,11 @@ func addToFront(slice []int, num int) []int {
 // var output = computePower(2, 3);
 // console.log(output); // --> 8
 
+func computePower(num float64, exp float64) float64 {
+	result := math.Pow(num, exp)
+	return result
+}
+
 // # 10
 // Write a function called “computePerimeterOfACircle”.
 
@@ -174,6 +185,10 @@ func addToFront(slice []int, num int) []int {
 
 // var output = computePerimeterOfACircle(4);
 // console.log(output); // --> 25.132741228718345
+
+func computePerimeterOfACircle(radius float64) float64 {
+	return (2 * math.Pi * radius)
+}
 
 // # 11
 // Write a function called “joinArrays”.
