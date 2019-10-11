@@ -10,6 +10,14 @@ func main() {
 	objq2["yes"] = "true"
 	objq2["no"] = "false"
 	fmt.Println(getProperty(objq2, "no"))
+	// #3
+	objq3 := make(map[string]bool)
+	fmt.Println(addProperty(objq3, "rain"))
+	// #4
+	objq4 := make(map[string]int)
+	objq4["odd"] = 3
+	objq4["even"] = 4
+	fmt.Println(removeProperty(objq4, "even"))
 }
 
 // #1
@@ -25,6 +33,7 @@ func isOldEnoughToDrink(age int) bool {
 	return false
 }
 
+// #2
 // Write a function called “getProperty”.
 // Given an object and a key, “getProperty” returns the value of the property at the given key.
 // Notes:
@@ -47,4 +56,33 @@ func getProperty(obj map[string]string, str string) string {
 		}
 	}
 	return ""
+}
+
+// #3
+// Write a function called “addProperty”.
+// Given an object, and a key, “addProperty” sets a new property on the given object with a value of true.
+
+// var myObj = {};
+// addProperty(myObj, 'myProperty');
+// console.log(myObj.myProperty); // --> true
+
+func addProperty(obj map[string]bool, key string) map[string]bool {
+	obj[key] = true
+	return obj
+}
+
+// #4
+// Write a function called “removeProperty”.
+// Given an object and a key, “removeProperty” removes the given key from the given object.
+
+// var obj = {
+//   name: 'Sam',
+//   age: 20
+// }
+// removeProperty(obj, 'name');
+// console.log(obj.name); // --> undefined
+
+func removeProperty(obj map[string]int, even string) map[string]int {
+	delete(obj, even)
+	return obj
 }
