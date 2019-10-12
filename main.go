@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	"math"
+	s "strings"
 
 	sl "./help"
-
-	s "strings"
 )
 
 func main() {
@@ -64,7 +63,7 @@ func main() {
 	fmt.Println(getElementsUpTo([]string{"a", "b", "c", "d", "e"}, 3))
 
 	// #14 countCharacter
-	fmt.Println(countCharacter("what is going onn", "s"))
+	fmt.Println(countCharacter("what is going onn", "n"))
 }
 
 // #1
@@ -270,7 +269,19 @@ func countCharacter(str string, char string) int {
 	// 		return i
 	// 	}
 	// }
-	return s.Index(str, char)
+	// for _, value := range oldMap {
+	// 	// newMap[key] = value
+
+	// 	// value = unicode.ToLower(value)
+	// 	fmt.Printf("%s", value)
+	// 	// if value == char {
+
+	// 	// }
+	// 	// fmt.Printf(, i, c)
+	// }
+
+	// return 5
+	return s.Count(str, char)
 }
 
 // #15
