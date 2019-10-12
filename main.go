@@ -92,6 +92,17 @@ func main() {
 	objq19["e"] = 3
 	objq19["f"] = 4
 	fmt.Println(removeNumbersLargerThan(10, objq19))
+
+	// #20 removeStringValuesLongerThan
+	objq20 := make(map[string]string)
+	objq20["a"] = "Ben"
+	objq20["b"] = "Dawaj"
+	objq20["c"] = "Julien"
+	objq20["d"] = "Alex"
+	objq20["e"] = "Christine"
+	objq20["f"] = "Mariana"
+	objq20["g"] = "Kyle"
+	fmt.Println(removeStringValuesLongerThan(4, objq20))
 }
 
 // #1
@@ -422,3 +433,42 @@ func removeNumbersLargerThan(num int, obj map[string]int) map[string]int {
 	}
 	return obj
 }
+
+// #19
+// Write a function called “removeStringValuesLongerThan”.
+
+// Given an number and an object, “removeStringValuesLongerThan” removes any properties on the given object whose values are strings longer than the given number.
+
+// var obj = {
+//   name: 'Montana',
+//   age: 20,
+//   location: 'Texas'
+// };
+// removeStringValuesLongerThan(6, obj);
+// console.log(obj); // { age: 20, location: 'Texas' }
+
+func removeStringValuesLongerThan(num int, obj map[string]string) map[string]string {
+	for key, value := range obj {
+		if len(value) > num {
+			delete(obj, key)
+		}
+	}
+	return obj
+}
+
+// #20
+// Write a function called “removeEvenValues”.
+
+// Given an object, “removeEvenValues” removes any properties whose values are even numbers.
+
+// Do this in place and return the original object, do not construct a cloned object that omits the properties.
+
+// Example:
+
+// var obj = {
+//   a: 2,
+//   b: 3,
+//   c: 4
+// };
+// removeEvenValues(obj);
+// console.log(obj); // --> { b: 3 }
