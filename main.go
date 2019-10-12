@@ -67,6 +67,9 @@ func main() {
 
 	// #15 getAllLetters
 	fmt.Println(getAllLetters("hello"))
+
+	// #16 countWords
+	fmt.Println(countWords("ask a bunch get a bunch"))
 }
 
 // #1
@@ -299,8 +302,8 @@ func countCharacter(str string, char string) int {
 // console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
 
 func getAllLetters(word string) []string {
-	array := s.Split(word, "")
-	return array
+	slice := s.Split(word, "")
+	return slice
 }
 
 // #16
@@ -313,3 +316,18 @@ func getAllLetters(word string) []string {
 
 // var output = countWords('ask a bunch get a bunch');
 // console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
+
+func countWords(str string) map[string]int {
+	slice := s.Split(str, " ")
+	obj := make(map[string]int)
+	for i := 0; i < len(slice); i++ {
+		if _, ok := obj[slice[i]]; ok {
+			if ok == true {
+				obj[slice[i]]++
+			}
+		} else {
+			obj[slice[i]] = 1
+		}
+	}
+	return obj
+}
