@@ -5,42 +5,66 @@ import (
 	"math"
 
 	sl "./help"
+
+	s "strings"
 )
 
 func main() {
 	// #1 isOldEnoughToDrink
 	fmt.Println(isOldEnoughToDrink(21))
+
 	// #2 getProperty
 	objq2 := make(map[string]string)
 	objq2["yes"] = "true"
 	objq2["no"] = "false"
 	fmt.Println(getProperty(objq2, "no"))
+
 	// #3 addProperty
 	objq3 := make(map[string]bool)
 	fmt.Println(addProperty(objq3, "rain"))
+
 	// #4 removeProperty
 	objq4 := make(map[string]int)
 	objq4["odd"] = 3
 	objq4["even"] = 4
 	fmt.Println(removeProperty(objq4, "even"))
+
 	// #5 getLengthOfTwoWords
 	fmt.Println(getLengthOfTwoWords("one", "two"))
+
 	// #6 addArrayProperty
 	objq6 := make(map[string][2]string)
 	arrq6 := [2]string{"hello", "world"}
 	fmt.Println(addArrayProperty(objq6, "arr", arrq6))
+
 	// #7 getLastElement
 	arrq8 := []string{"12", "34", "56"}
 	fmt.Println(getLastElement(arrq8))
+
 	// #8 addToFront
 	sliceq8 := []int{1, 2, 3, 4, 5}
 	fmt.Println(addToFront(sliceq8, 6))
+
 	// Testing importing functions from another file
 	sl.Demo()
+
 	// #9 computePower
 	fmt.Println(computePower(2, 3))
+
 	// #10 computePerimeterOfACircle
 	fmt.Println(computePerimeterOfACircle(12))
+
+	// #11 joinSlices
+	fmt.Println([]int{1, 2, 3}, []int{3, 4, 5})
+
+	// #12 getElementsAfter
+	fmt.Println(getElementsAfter([]string{"1", "2", "3", "4", "5", "6", "7", "8"}, 3))
+
+	// #13 getElementsUpTo
+	fmt.Println(getElementsUpTo([]string{"a", "b", "c", "d", "e"}, 3))
+
+	// #14 countCharacter
+	fmt.Println(countCharacter("what is going onn", "s"))
 }
 
 // #1
@@ -198,13 +222,21 @@ func computePerimeterOfACircle(radius float64) float64 {
 // var output = joinArrays([1, 2], [3, 4]);
 // console.log(output); // --> [1, 2, 3, 4]
 
+func joinSlices(slice1 []int, slice2 []int) []int {
+	// append will always append the second argument passed in, to the first one
+	slice := append(slice1, slice2...)
+	return slice
+}
+
 // #12
 // Write a function called “getElementsAfter”.
 
 // Given an array and an index, “getElementsAfter” returns a new array with all the elements after (but not including) the given index.
 
-// var output = getElementsAfter(['a', 'b', 'c', 'd', 'e'], 2);
-// console.log(output); // --> ['d', 'e']
+func getElementsAfter(slice []string, index int) []string {
+	// index = 3  		So it returns everthing after the 3 elemnt in the array
+	return slice[index:]
+}
 
 // #13
 // Write a function called “getElementsUpTo”.
@@ -217,6 +249,10 @@ func computePerimeterOfACircle(radius float64) float64 {
 // var output = getElementsUpTo(['a', 'b', 'c', 'd', 'e'], 3)
 // console.log(output); // --> ['a', 'b', 'c']
 
+func getElementsUpTo(slice []string, index int) []string {
+	return slice[:index]
+}
+
 // #14
 // Write a function called “countCharacter”.
 
@@ -224,6 +260,18 @@ func computePerimeterOfACircle(radius float64) float64 {
 
 // var output = countCharacter('I am a hacker', 'a');
 // console.log(output); // --> 3
+
+func countCharacter(str string, char string) int {
+
+	// SOLVE WITH OTHER METHODS AS WELL
+
+	// for i := 0; i < len(str); i++ {
+	// 	if str[i] == char {
+	// 		return i
+	// 	}
+	// }
+	return s.Index(str, char)
+}
 
 // #15
 // Write a function called “getAllLetters”.
