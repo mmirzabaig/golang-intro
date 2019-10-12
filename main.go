@@ -64,6 +64,9 @@ func main() {
 
 	// #14 countCharacter
 	fmt.Println(countCharacter("what is going onn", "n"))
+
+	// #15 getAllLetters
+	fmt.Println(getAllLetters("hello"))
 }
 
 // #1
@@ -294,6 +297,11 @@ func countCharacter(str string, char string) int {
 
 // var output = getAllLetters('Radagast');
 // console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
+
+func getAllLetters(word string) []string {
+	array := s.Split(word, "")
+	return array
+}
 
 // #16
 // Write a function called “countWords”.
