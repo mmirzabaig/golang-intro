@@ -82,6 +82,16 @@ func main() {
 	obj2q18["b"] = 2
 	obj2q18["c"] = 3
 	fmt.Println(extend(obj1q18, obj2q18))
+
+	// #19 removeNumbersLargerThan
+	objq19 := make(map[string]int)
+	objq19["a"] = 91
+	objq19["b"] = 19
+	objq19["c"] = 9
+	objq19["d"] = 29
+	objq19["e"] = 3
+	objq19["f"] = 4
+	fmt.Println(removeNumbersLargerThan(10, objq19))
 }
 
 // #1
@@ -384,11 +394,31 @@ func removeFromBack(slice []int) []int {
 // console.log(obj2); // --> {b: 4, c: 3}
 func extend(obj1 map[string]int, obj2 map[string]int) map[string]int {
 	for key, val := range obj1 {
-		if _, ok := obj2[key]; ok {
-			fmt.Println(key)
-		} else {
+		if _, ok := obj2[key]; !ok {
 			obj2[key] = val
 		}
 	}
 	return obj2
+}
+
+// #18
+// Write a function called “removeNumbersLargerThan”.
+
+// Given a number and an object, “removeNumbersLargerThan” removes any properties whose values are numbers greater than the given number.
+
+// var obj = {
+//   a: 8,
+//   b: 2,
+//   c: 'montana'
+// }
+// removeNumbersLargerThan(5, obj);
+// console.log(obj); // --> { b: 2, c: 'montana' }
+
+func removeNumbersLargerThan(num int, obj map[string]int) map[string]int {
+	for key, value := range obj {
+		if value > num {
+			delete(obj, key)
+		}
+	}
+	return obj
 }
