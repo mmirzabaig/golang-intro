@@ -103,6 +103,9 @@ func main() {
 	objq20["f"] = "Mariana"
 	objq20["g"] = "Kyle"
 	fmt.Println(removeStringValuesLongerThan(4, objq20))
+
+	// #21 countAllCharacters
+	fmt.Println(countAllCharacters("banana"))
 }
 
 // #1
@@ -412,7 +415,7 @@ func extend(obj1 map[string]int, obj2 map[string]int) map[string]int {
 	return obj2
 }
 
-// #18
+// #19
 // Write a function called “removeNumbersLargerThan”.
 
 // Given a number and an object, “removeNumbersLargerThan” removes any properties whose values are numbers greater than the given number.
@@ -434,7 +437,7 @@ func removeNumbersLargerThan(num int, obj map[string]int) map[string]int {
 	return obj
 }
 
-// #19
+// #20
 // Write a function called “removeStringValuesLongerThan”.
 
 // Given an number and an object, “removeStringValuesLongerThan” removes any properties on the given object whose values are strings longer than the given number.
@@ -456,19 +459,26 @@ func removeStringValuesLongerThan(num int, obj map[string]string) map[string]str
 	return obj
 }
 
-// #20
-// Write a function called “removeEvenValues”.
+// #21
+// Write a function called “countAllCharacters”.
 
-// Given an object, “removeEvenValues” removes any properties whose values are even numbers.
+// Given a string, “countAllCharacters” returns an object where each key is a character in the given string. The value of each key should be how many times each character appeared in the given string.
 
-// Do this in place and return the original object, do not construct a cloned object that omits the properties.
+// Notes:
+// * If given an empty string, countAllCharacters should return an empty object.
 
-// Example:
+// var output = countAllCharacters('banana');
+// console.log(output); // --> {b: 1, a: 3, n: 2}
 
-// var obj = {
-//   a: 2,
-//   b: 3,
-//   c: 4
-// };
-// removeEvenValues(obj);
-// console.log(obj); // --> { b: 3 }
+func countAllCharacters(str string) map[string]int {
+	slice := s.Split(str, "")
+	obj := make(map[string]int)
+	for i := 0; i < len(slice); i++ {
+		if _, ok := obj[slice[i]]; ok {
+			obj[slice[i]]++
+		} else {
+			obj[slice[i]] = 1
+		}
+	}
+	return obj
+}
