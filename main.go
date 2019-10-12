@@ -73,6 +73,15 @@ func main() {
 
 	// #17 removeFromBack
 	fmt.Println(removeFromBack([]int{1, 2, 3, 4}))
+
+	// #18 extend
+	obj1q18 := make(map[string]int)
+	obj1q18["a"] = 1
+	obj1q18["b"] = 2
+	obj2q18 := make(map[string]int)
+	obj2q18["b"] = 2
+	obj2q18["c"] = 3
+	fmt.Println(extend(obj1q18, obj2q18))
 }
 
 // #1
@@ -348,4 +357,38 @@ func countWords(str string) map[string]int {
 
 func removeFromBack(slice []int) []int {
 	return slice[:len(slice)-1]
+}
+
+// #18
+// Write a function called “extend”.
+
+// Given two objects, “extend” adds properties from the 2nd object to the 1st object.
+
+// Notes:
+// * Add any keys that are not in the 1st object.
+// * If the 1st object already has a given key, ignore it (do not overwrite the property value).
+// * Do not modify the 2nd object at all.
+
+// var obj1 = {
+//   a: 1,
+//   b: 2
+// };
+// var obj2 = {
+//   b: 4,
+//   c: 3
+// };
+
+// extend(obj1, obj2);
+
+// console.log(obj1); // --> {a: 1, b: 2, c: 3}
+// console.log(obj2); // --> {b: 4, c: 3}
+func extend(obj1 map[string]int, obj2 map[string]int) map[string]int {
+	for key, val := range obj1 {
+		if _, ok := obj2[key]; ok {
+			fmt.Println(key)
+		} else {
+			obj2[key] = val
+		}
+	}
+	return obj2
 }
