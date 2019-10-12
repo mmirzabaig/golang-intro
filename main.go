@@ -70,6 +70,9 @@ func main() {
 
 	// #16 countWords
 	fmt.Println(countWords("ask a bunch get a bunch"))
+
+	// #17 removeFromBack
+	fmt.Println(removeFromBack([]int{1, 2, 3, 4}))
 }
 
 // #1
@@ -330,4 +333,19 @@ func countWords(str string) map[string]int {
 		}
 	}
 	return obj
+}
+
+// #17
+// Write a function called “removeFromBack”.
+
+// Given an array, “removeFromBack” returns the given array with its last element removed.
+
+// Notes:
+// * You should be familiar with the method ‘pop’.
+
+// var output = removeFromBack([1, 2, 3]);
+// console.log(output); // --> [1, 2]
+
+func removeFromBack(slice []int) []int {
+	return slice[:len(slice)-1]
 }
